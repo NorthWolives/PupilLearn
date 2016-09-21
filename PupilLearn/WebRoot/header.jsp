@@ -10,13 +10,13 @@
         <span class="icon-bar"></span>
       </button>
       
-      <a class="navbar-brand" href="#">小天才算数学习</a>
+      <a class="navbar-brand" href="#">小天才算术学习</a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">首页<span class="sr-only">(current)</span></a></li>
-        <li><a href="#">开始学习</a></li>
+        <li class="active"><a href="index.jsp">首页<span class="sr-only">(current)</span></a></li>
+        <li><a href="learn.jsp">开始学习</a></li>
         <li><a href="#">好友排名</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">个人信息 <span class="caret"></span></a>

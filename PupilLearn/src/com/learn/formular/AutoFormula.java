@@ -8,8 +8,8 @@ import javax.script.ScriptException;
 
 
 public class AutoFormula {
-	static String formular = new String();
-	static String result = new String();
+	public static String formular = new String();
+	public static String result = new String();
 	int numerator;
 	int denominator;
 	
@@ -21,7 +21,7 @@ public class AutoFormula {
 		 * 参数minOfNumber为式子中出现的最小数值；
 		 * 参数maxOfNumber为式子中出现的最大数值；
 		 */
-		new AutoFormula().generate(2, 0, 3, 0, 10);
+		new AutoFormula().generate(0, 0, 3, 0, 10);
 		System.out.println(formular);
 		System.out.println(result);
 	}
@@ -49,7 +49,7 @@ public class AutoFormula {
 		formular = stringBuilder.toString();
 		
 		if (hasFraction == 0) {
-			result = calIntResult(number, character);
+			result = calIntResult();
 		} else {
 			result = calFractionResult(number, character);
 		}
@@ -104,11 +104,11 @@ public class AutoFormula {
 
 	
 	//整型表达式的正确计算结果
-	public String calIntResult(String[] number, String[] character) {
-		ScriptEngine se = new ScriptEngineManager().getEngineByName("JavaScript");
+	public String calIntResult() {
+		ScriptEngine engine = new ScriptEngineManager().getEngineByName("JavaScript");
 		try {
-			Double result = (Double) se.eval(formular);
-            return String.valueOf(result.doubleValue());
+			Object object = engine.eval(formular);
+            return object.toString();
         } catch (ScriptException e) {
             e.printStackTrace();
         }

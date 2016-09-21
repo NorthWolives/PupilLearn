@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     <link rel="shortcut icon" href="icon.ico" type="image/x-icon" />
-    <title>小天才算数学习网</title>
+    <title>小天才算术学习网</title>
 	<!-- bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="js/jquery-2.1.1.min.js"></script>
@@ -45,7 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			  <h4>● 对接真实考试试题，练习卓有成效</h4>
 			  <h4>● 寓教于乐，唤醒孩子心中洪荒之力</h4>
 			  <br/><br/>
-			  <p><a class="btn btn-primary btn-lg">开始学习</a></p>
+			  <p><a href="learn.jsp" class="btn btn-primary btn-lg">开始学习</a></p>
 		  </div>
 		</div>
   </body>
