@@ -60,11 +60,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="list-group">
 					<div class="thumbnail" style="">
 					    <img src="img/pupil1.jpg" alt="...">
-					    <a id="learn" href="learn.jsp" class="list-group-item active" style="text-align: center;">简单：算术小童</a>
+					    <a id="learn" href="learn.jsp" class="list-group-item" style="text-align: center;">简单：算术小童</a>
 					</div>
 					<div class="thumbnail">
 					    <img src="img/pupil2.jpg" alt="...">
-					    <a id="middle" href="middle.jsp" class="list-group-item" style="text-align: center;">较难：算术神童</a>
+					    <a id="middle" href="middle.jsp" class="list-group-item active" style="text-align: center;">较难：算术神童</a>
 					</div>
 					<div class="thumbnail">
 					    <img src="img/pupil3.jpg" alt="...">
@@ -72,21 +72,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>
 				</div>
 			  </div>
+			  
 			  <div class="col-md-10">
 			    <div class="alert alert-dismissible alert-info">
 				    <button type="button" class="close" data-dismiss="alert">&times;</button>
-					 你真棒！<a href="#" class="alert-link">万世想</a>同学，再一次见到你很开心！完成300道运算后晋级算术神童！
+					 你真棒！<a href="#" class="alert-link">万世想</a>同学，再一次见到你很开心！完成5000道运算后晋级算术天才！
 				</div>
 				
 			    <div class="page-header">
-				  <h1>算术天才训练营 <small>简单模式：5个数字，200以内整数加减法</small></h1>
+				  <h1>算术天才训练营 <small>较难模式：7个数字，20以内加减乘除整数四则运算</small></h1>
 				</div>
 				
 				<div class="panel panel-default subject">
 				  <div class="panel-body subject" style="text-align: center;">
-				     <!-- <h1>$$1 + 2 - (3 \times 4) \div 5 = \frac{3}{5}$$</h1>  -->
 				    <c:if test="${empty requestScope.formular}">
-				        <a href="generate_easy.do" class="btn btn-primary btn-lg" style="margin-top:100px;width:200px;">开始练习</a>
+				        <a href="generate_middle.do" class="btn btn-primary btn-lg" style="margin-top:100px;width:200px;">开始练习</a>
 				    </c:if>
 				    <c:if test="${not empty requestScope.formular}">
 				        <h1 style="margin-top:100px;">算一算：$ ${requestScope.formular} $</h1>
@@ -95,7 +95,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				  </div>
 				</div>
 				<ul class="pager" style="font-size: 18px;">
-				  <li class="previous"><a href="generate_easy.do">再来一题 &rarr;</a></li>
+				  <li class="previous"><a href="generate_middle.do">再来一题 &rarr;</a></li>
 				  <li class="next"><a onclick="view_result()"> 正确答案</a></li>
 				  <li class="next"><a onclick="submit_result()">提交答案</a></li>
 				  <!-- <li class="next"><a href="#">清空</a></li> -->

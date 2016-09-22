@@ -10,8 +10,10 @@ import javax.script.ScriptException;
 public class AutoFormula {
 	public static String formular = new String();
 	public static String result = new String();
+	public static String mathTex = new String();
 	int numerator;
 	int denominator;
+	String texString = new String();
 	
 	public static void main(String[] args) {
 		/*
@@ -21,8 +23,15 @@ public class AutoFormula {
 		 * 参数minOfNumber为式子中出现的最小数值；
 		 * 参数maxOfNumber为式子中出现的最大数值；
 		 */
-		new AutoFormula().generate(0, 0, 3, 0, 10);
+		//new AutoFormula().generate(0, 0, 3, 0, 10);
+		new AutoFormula().generate(2, 1, 6, 0, 20);
+		for (int i=0; i<formular.length(); i++) {
+			
+		}
+		formular = formular.replace("*", " \\times ");
+		formular = formular.replace("/", " \\div ");
 		System.out.println(formular);
+		System.out.println(mathTex);
 		System.out.println(result);
 	}
 	
@@ -31,22 +40,28 @@ public class AutoFormula {
 		int numOfNumber = numOfCharacter + 1;
 		String[] character = new String[numOfCharacter];
 		String[] number = new String[numOfNumber];
+		String[] tex = new String[numOfNumber];
 		StringBuilder stringBuilder = new StringBuilder();
+		StringBuilder stringBuilderTex = new StringBuilder();
 		
 		//初始化符号数组
 		for (int i=0; i<character.length; i++) {
 			character[i] = generateCharacter(mode);
 		}
-		//初始化数字数组
+		//初始化数字数组、Tex数组
 		for (int i=0; i<number.length; i++) {
 			number[i] = generateNumber(hasFraction, minOfNumber, maxOfNumber);
+			tex[i] = texString;
 		}
 		//链接符号和数字
 		stringBuilder.append(number[0]);
+		stringBuilderTex.append(tex[0]);
 		for (int i=0; i<character.length; i++) {
 			stringBuilder.append(character[i] + number[i+1]);
+			stringBuilderTex.append(character[i] + tex[i+1]);
 		}
 		formular = stringBuilder.toString();
+		mathTex = stringBuilderTex.toString();
 		
 		if (hasFraction == 0) {
 			result = calIntResult();
@@ -96,7 +111,8 @@ public class AutoFormula {
 			do { //分子为0太简单,分母不能为0或1,分子分母不能相等
 				numerator = min + random.nextInt(max);
 				denominator = min + random.nextInt(max);
-			} while (numerator == 0 || denominator == 0 || denominator == 1 || denominator == numerator); 
+			} while (numerator == 0 || denominator == 0 || denominator == 1 || denominator == numerator);
+			texString = "\\frac{"+String.valueOf(numerator)+"}{"+String.valueOf(denominator)+"}";
 			return String.valueOf(numerator) + "/" + String.valueOf(denominator);
 		}
 		return null;
@@ -159,7 +175,8 @@ public class AutoFormula {
 		} else if (first_numerator == first_denominator) {
 			return "1";
 		} else {
-			return first_numerator + "/" + first_denominator;
+			//return first_numerator + "/" + first_denominator;
+			return "\\frac{"+first_numerator+"}{"+first_denominator+"}";
 		}
 	}
 	
