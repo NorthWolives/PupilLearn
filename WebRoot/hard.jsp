@@ -37,11 +37,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </style>
     <script type="text/javascript">
 	    function view_result() {
-	    	alert("正确结果： "+${requestScope.result});
-	    	$("#result").removeAttr("display");
+	    	$("#result").html("正确结果："+${requestScope.result});
 	    }
 	    function submit_result() {
-	    	alert("敬待完善");
+	    	var input_value = $("#input").val();
+	    	var correct_value = ${requestScope.result};
+	    	if (input_value == correct_value) {
+	    		alert("完美的计算！");
+	    	} else {
+	    		alert("结果不正确，再试试吧！");
+	    	}
+	    	
 	    }
     </script>
   </head>
@@ -89,16 +95,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				        <a href="generate_hard.do" class="btn btn-primary btn-lg" style="margin-top:100px;width:200px;">开始练习</a>
 				    </c:if>
 				    <c:if test="${not empty requestScope.formular}">
-				        <h1 style="margin-top:100px;">算一算：$ ${requestScope.formular} $</h1>
-				        <h1 id="result">正确结果：$ ${requestScope.result} $</h1>
+				        <h1 style="margin-top:100px;">计算：$ ${requestScope.formular} $</h1>
+				        <p style="height:5px;"></p>
+				        <div class="form-group">
+						  <div class="input-group" style="width:200px;margin:0 auto;">
+						    <input id="input" type="text" class="form-control">
+						    <span class="input-group-btn">
+						      <button class="btn btn-success" onclick="submit_result()" type="button">提交答案</button>
+						    </span>
+						  </div>
+						</div>
+				        <h4 id="result"></h4>
 					</c:if>
 				  </div>
 				</div>
 				<ul class="pager" style="font-size: 18px;">
 				  <li class="previous"><a href="generate_hard.do">再来一题 &rarr;</a></li>
 				  <li class="next"><a onclick="view_result()"> 正确答案</a></li>
-				  <li class="next"><a onclick="submit_result()">提交答案</a></li>
-				  <!-- <li class="next"><a href="#">清空</a></li> -->
 				</ul>
 			  </div>
 			</div>

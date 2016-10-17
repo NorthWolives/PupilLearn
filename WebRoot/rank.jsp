@@ -15,15 +15,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="js/jquery-2.1.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-    <script type="text/x-mathjax-config">
-	    MathJax.Hub.Config({
-            tex2jax: {
-                inlineMath: [['$','$'], ['\\(','\\)']],
-                processEscapes: true
-            }
-        });
-	</script>
     <style type="text/css">
       body {
       		padding-top: 80px;
@@ -32,23 +23,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             font-family: "微软雅黑";
       }
       .subject {
-      		height:350px;
+      		height:400px;
       }
     </style>
     <script type="text/javascript">
-	    function view_result() {
-	    	$("#result").html("正确结果："+${requestScope.result});
-	    }
-	    function submit_result() {
-	    	var input_value = $("#input").val();
-	    	var correct_value = ${requestScope.result};
-	    	if (input_value == correct_value) {
-	    		alert("完美的计算！");
-	    	} else {
-	    		alert("结果不正确，再试试吧！");
-	    	}
-	    	
-	    }
+	    $(document).ready(function(e) {
+	    	var myDate = new Date();
+		    $('#data_time').html("数据更新时间："+myDate.getFullYear()+"年"
+		    		+myDate.getMonth()+"月"+myDate.getDate()+"日"+myDate.getHours()+"时"+myDate.getMinutes()+"分");
+		});
     </script>
   </head>
   <body>
@@ -79,40 +62,61 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 			  </div>
 			  <div class="col-md-10">
-			    <div class="alert alert-dismissible alert-info">
+			    <!-- <div class="alert alert-dismissible alert-info">
 				    <button type="button" class="close" data-dismiss="alert">&times;</button>
 					 你真棒！<a href="#" class="alert-link">万世想</a>同学，再一次见到你很开心！完成300道运算后晋级算术神童！
-				</div>
+				</div> -->
 				
 			    <div class="page-header">
-				  <h1>算术天才训练营 <small>简单模式：5个数字，200以内整数加减法</small></h1>
+				  <h1>我的排名 <small>厉害了，word哥！</small></h1>
 				</div>
 				
 				<div class="panel panel-default subject">
-				  <div class="panel-body subject" style="text-align: center;">
-				     <!-- <h1>$$1 + 2 - (3 \times 4) \div 5 = \frac{3}{5}$$</h1>  -->
-				    <c:if test="${empty requestScope.formular}">
-				        <a href="generate_easy.do" class="btn btn-primary btn-lg" style="margin-top:100px;width:200px;">开始练习</a>
-				    </c:if>
-				    <c:if test="${not empty requestScope.formular}">
-				        <h1 style="margin-top:100px;">计算：${requestScope.formular}</h1>
-				        <p style="height:5px;"></p>
-				        <div class="form-group">
-						  <div class="input-group" style="width:200px;margin:0 auto;">
-						    <input id="input" type="text" class="form-control">
-						    <span class="input-group-btn">
-						      <button class="btn btn-success" onclick="submit_result()" type="button">提交答案</button>
-						    </span>
-						  </div>
-						</div>
-				        <h4 id="result"></h4>
-					</c:if>
+				  <div class="panel-body subject">
+				  	<table class="table table-striped table-hover ">
+					  <thead>
+					    <tr>
+					      <th>名次</th>
+					      <th>江湖人称</th>
+					      <th>练习时长</th>
+					      <th>正确率</th>
+					      <th>等级</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr class="warning">
+					      <td>1</td>
+					      <td>北洋西霸：纪梓潼</td>
+					      <td>24小时70分钟</td>
+					      <td>100%</td>
+					      <td>算术天才</td>
+					    </tr>
+					    <tr class="danger">
+					      <td>2</td>
+					      <td>北洋东霸：万世想</td>
+					      <td>21小时08分钟</td>
+					      <td>100%</td>
+					      <td>算术天才</td>
+					    </tr>
+					    <tr class="warning">
+					      <td>3</td>
+					      <td>北洋北霸：纪梓潼</td>
+					      <td>17小时24分钟</td>
+					      <td>91%</td>
+					      <td>算术天才</td>
+					    </tr>
+					    <tr class="warning">
+					      <td>4</td>
+					      <td>北洋南霸：滕飞</td>
+					      <td>10小时12分钟</td>
+					      <td>90%</td>
+					      <td>算术天才</td>
+					    </tr>
+					  </tbody>
+					</table>
 				  </div>
 				</div>
-				<ul class="pager" style="font-size: 18px;">
-				  <li class="previous"><a href="generate_easy.do">再来一题 &rarr;</a></li>
-				  <li class="next"><a onclick="view_result()"> 正确答案</a></li>
-				</ul>
+				<p id="data_time"></p>
 			  </div>
 			</div>
     	</div>

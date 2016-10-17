@@ -17,7 +17,8 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="index.jsp">首页<span class="sr-only">(current)</span></a></li>
         <li><a href="learn.jsp">开始学习</a></li>
-        <li><a href="#">好友排名</a></li>
+        <li><a href="rank.jsp">我的排名</a></li>
+        <li><a href="game.jsp">最难游戏</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">个人信息 <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -25,14 +26,12 @@
             <li class="divider"></li>
             <li><a href="#">家长监督</a></li>
             <li><a href="#">班级作业</a></li>
-            <li class="divider"></li>
-            <li><a href="#">数独游戏</a></li>
           </ul>
         </li>
       </ul>
       <form class="navbar-form navbar-left">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="高难度题目">
+          <input type="text" class="form-control" placeholder="趣味游戏">
         </div>
         <button type="submit" class="btn btn-warning">搜索</button>
       </form>
