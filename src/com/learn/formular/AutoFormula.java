@@ -175,8 +175,8 @@ public class AutoFormula {
 		} else if (first_numerator == first_denominator) {
 			return "1";
 		} else {
-			//return first_numerator + "/" + first_denominator;
-			return "\\frac{"+first_numerator+"}{"+first_denominator+"}";
+			return first_numerator + "/" + first_denominator;
+			//return "\\frac{"+first_numerator+"}{"+first_denominator+"}";
 		}
 	}
 	

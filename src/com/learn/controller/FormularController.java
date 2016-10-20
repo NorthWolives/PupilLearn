@@ -20,7 +20,7 @@ public class FormularController {
 		
 		map.addAttribute("formular", formular);
 		map.addAttribute("result", result);
-		return new ModelAndView("learn");
+		return new ModelAndView("learn/easy");
 	}
 	
 	@SuppressWarnings("static-access")
@@ -35,7 +35,7 @@ public class FormularController {
 		
 		map.addAttribute("formular", formular);
 		map.addAttribute("result", result);
-		return new ModelAndView("middle");
+		return new ModelAndView("learn/middle");
 	}
 	
 	@SuppressWarnings("static-access")
@@ -50,6 +50,6 @@ public class FormularController {
 		
 		map.addAttribute("formular", mathTex);
 		map.addAttribute("result", result);
-		return new ModelAndView("hard");
+		return new ModelAndView("learn/hard");
 	}
 }

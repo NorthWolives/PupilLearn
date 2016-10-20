@@ -35,7 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </style>
   </head>
   <body>
-        <jsp:include page="header.jsp" />
+        <jsp:include page="/common/header.jsp" />
     
 	    <div class="jumbotron">
 	      <div class="container">
@@ -45,7 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			  <h4>● 对接真实考试试题，练习卓有成效</h4>
 			  <h4>● 寓教于乐，唤醒孩子心中洪荒之力</h4>
 			  <br/><br/>
-			  <p><a href="learn.jsp" class="btn btn-primary btn-lg">开始学习</a></p>
+			  <p><a href="learn/easy.jsp" class="btn btn-primary btn-lg">开始学习</a></p>
 		  </div>
 		</div>
   </body>

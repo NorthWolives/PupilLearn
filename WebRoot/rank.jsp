@@ -35,7 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </script>
   </head>
   <body>
-        <jsp:include page="header.jsp" />
+        <jsp:include page="/common/header.jsp" />
         
     	<div class="container">
     	    <!-- 进度条显示 -->
@@ -100,7 +100,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					    </tr>
 					    <tr class="warning">
 					      <td>3</td>
-					      <td>北洋北霸：范鹏宸</td>
+					      <td>北洋北霸：纪梓潼</td>
 					      <td>17小时24分钟</td>
 					      <td>91%</td>
 					      <td>算术天才</td>
